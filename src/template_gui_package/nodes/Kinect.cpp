@@ -11,7 +11,6 @@
 #include <opencv4/opencv2/highgui/highgui.hpp>
 #include <stdio.h>
 #include <stdlib.h>
-#include <libfreenect.h>
 #include <image_transport/image_transport.h>
 #include<cv_bridge/cv_bridge.h>
 #include "sensor_msgs/Image.h"
@@ -63,7 +62,7 @@ int main(int argc, char **argv)
     // Create image transport objects for the two topics
     image_transport::ImageTransport it(nh);
     pub_rgb = it.advertise("rgb_image", 1);
-    pub_depth = nh.advertise<sensor_msgs::Image>("depth_image", 1000);
+    pub_depth = nh.advertise<sensor_msgs::Image>("depth_image", 1);
 
 
     // Initialize the libfreenect library
@@ -75,7 +74,7 @@ int main(int argc, char **argv)
     }
 
     // Find the first connected Kinect device
-    if (freenect_open_device(context, &device, 0) < 0) {
+    if (freenect_open_device(context, &device,0) < 0) {
         printf("Failed to open Kinect device\n");
         exit(1);
     }

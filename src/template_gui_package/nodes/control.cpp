@@ -2,6 +2,7 @@
 #include <std_msgs/Float32MultiArray.h>
 #include <std_msgs/MultiArrayLayout.h>
 #include <std_msgs/MultiArrayDimension.h>
+#include <geometry_msgs/Twist.h>
 #include <std_msgs/Bool.h>
 #include <math.h>
 #include <stdlib.h>
@@ -198,8 +199,24 @@ void update_path_velocities();
 
 void update_grippers_state(); // Open it or close it.
 
-void checkCallback(const std_msgs::Bool::ConstPtr& msg){
+/*void checkCallback(const std_msgs::Bool::ConstPtr& msg){
     check = msg->data;
+}*/
+bool published = false; // var to insure that the comming path velocity are published correctly.
+void JR_CallBack(const geometry_msgs::Twist::ConstPtr& msg)
+{
+  if(published){
+    R1_X_dot = msg->linear.x;
+    R1_Y_dot = msg->linear.y;
+    R1_Z_dot = msg->linear.z;
+
+    R2_X_dot = msg->angular.x;
+    R2_Y_dot = msg->angular.y;
+    R2_Z_dot = msg->angular.z;
+    inv_jacobian();
+    radPerSecond_2_stepsPerSecond();
+    published = false;
+  }
 }
 char** argv_global;
 int main(int argc, char** argv) {
@@ -211,7 +228,9 @@ int main(int argc, char** argv) {
 
   ros::Publisher ACTINO_PUB = n.advertise<std_msgs::Float32MultiArray>("dual_arm", 1);
 
-  ros::Subscriber CHECK = n.subscribe("check", 1, checkCallback);
+  //ros::Subscriber CHECK = n.subscribe("check", 1, checkCallback);
+
+  ros::Subscriber runJacobian = n.subscribe("JR", 50, JR_CallBack);
 
   init_msg();
 
@@ -222,7 +241,7 @@ int main(int argc, char** argv) {
     return 1;
   }
   mission = atof(argv[1]);
-  if (mission<0 ||mission>3){
+  if (mission<0 || mission>4){
     ROS_INFO("\n\nError in ordered Mission :(\nYou have only 4 Missions:\n * mission = 0 : that means do the IK.\n * mission = 1 : that means do the FK.\n * mission = 2 : that means do the IJ.\n * mission = 3 : that means go to Zero.");
     return 1;
   }
@@ -253,8 +272,11 @@ atof(argv_global[8]),atof(argv_global[9]),atof(argv_global[10]));
     ROS_INFO("\n\nthe correct input for Zero Pose is:\nrosrun  dual_arms  Control_IK_FK_J  3");
     return 1;
   }
+  if (mission==4 && argc!=2){
+    ROS_INFO("\n\nthe correct input for Zero Pose is:\nrosrun  dual_arms  Control_IK_FK_J  4");
+    return 1;
+  }
 /**********************************/
-
   while (ros::ok()) {
      Action_msg.data.clear(); // clear data of last angles smg.
      Action_msg.data.push_back(mission);
@@ -274,9 +296,9 @@ atof(argv_global[8]),atof(argv_global[9]),atof(argv_global[10]));
     update_grippers_state();
 
     ACTINO_PUB.publish(Action_msg);
-
     ros::spinOnce();
     loop_rate.sleep();
+    published = true;
   }
   return 0;
 }
@@ -430,7 +452,7 @@ void update_path_velocities() {
   R2_X_dot = .000;
   R2_Y_dot = .000;
   R2_Z_dot = .000;
-  R2_Z_dot = rad * cos(theta);
+  R2_X_dot = rad * cos(theta);
   R2_Y_dot = rad * sin(theta);
   theta += M_PI / increment;
 }

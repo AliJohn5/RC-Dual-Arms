@@ -3,9 +3,16 @@
 #include "hello_gui.h"
 #include<string.h>
 #include <geometry_msgs/Twist.h>
+#include "rrtstar.h"
 //using namespace ali;
+
+#ifndef INF
+#define INF 10000000
+#endif
+
 using std::string;
 
+bool f = false;
 static cv::Mat image;
 static cv::Mat image2;
 
@@ -16,6 +23,24 @@ int ddd = -30;
 
 //static int x_of_center = 160;
 //static int y_of_center = 320;
+
+int max_x1 = 640;
+int max_y1 = 215;
+int max_z1 = 260;
+
+int min_x1 = 310;
+int min_y1 = 62;
+int min_z1 = 0;
+
+
+int max_x2 = 440;
+int max_y2 = 215;
+int max_z2 = 260;
+
+
+int min_x2 = 75;
+int min_y2 = 62;
+int min_z2 = 0;
 
 
 static int x_of_center = 320;
@@ -31,6 +56,27 @@ static QLabel* lab2;
 int _x1=0;
 int _y1=0;
 int _z1=0;
+
+
+int send_x2= x_of_center;
+int send_y2= y_of_center;
+int send_z2= 0;
+
+
+int send_x1=x_of_center;
+int send_y1=y_of_center;
+int send_z1=50;
+
+
+
+int e_send_x2=x_of_center;
+int e_send_y2=y_of_center;
+int e_send_z2= 0 ;
+
+
+int e_send_x1=x_of_center-40;
+int e_send_y1=y_of_center-40;
+int e_send_z1=30;
 
 int  x_center = 0;
 int  y_center = 0;
@@ -54,6 +100,7 @@ MainWindow4::MainWindow4(QWidget *parent) :
 
   RGBptr.reset(new ros::NodeHandle("~"));
   DEPptr.reset(new ros::NodeHandle("~"));
+  JRptr.reset(new ros::NodeHandle("~"));
   lab = ui->label_2;
   x_label = ui->label_6;
   y_label = ui->label_7;
@@ -67,6 +114,7 @@ MainWindow4::MainWindow4(QWidget *parent) :
   pub1 = pub1ptr->advertise<geometry_msgs::Twist>("/point",10);
   RGB = RGBptr->subscribe<sensor_msgs::Image>("/rgb_image",1,&MainWindow4::RGBcallback,this);
   DEP = DEPptr->subscribe<sensor_msgs::Image>("/depth_image",1,&MainWindow4::DEPcallback,this);
+  JR = JRptr->advertise<geometry_msgs::Twist>("/JR",50);
 
 }
 
@@ -134,9 +182,18 @@ void MainWindow4::DEPcallback(const sensor_msgs::Image::ConstPtr &msg)
 {
   depth_data = (uint16_t*)&msg->data[0];
 
-  _z1 = 740-depth_data[(y_for_z + ddd) * (image.cols) + (x_for_z)];
+  //uint16_t pixel = msg->data.at<uint16_t>(y_for_z, x_for_z);
+  _z1 = 740 - depth_data[(y_for_z - 30) * image.cols + (x_for_z)];
+/*  for (int i = -30;i<=30;i++) {
+    for(int j = -30;j<=30;j++){
+    int temp = _z1 = 740-depth_data[(y_for_z  + i) * (image.cols) + (x_for_z) + j];
+   if (temp > 5 && temp < 280 && temp<_z1 ) _z1 = temp;
+    }
+  }
+*/
   if (_z1 < 0) _z1 = 0;
   if (_z1 > 280) _z1 = 280;
+  send_z2 = _z1;
   ui->label_8->setNum(_z1);
 }
 
@@ -259,13 +316,13 @@ void MainWindow4::CustomLabel::mousePressEvent(QMouseEvent *event)
   cv::Mat mask = createMask(image,minh,maxh,mins,maxs,minv,maxv);
   cv::Mat kernel = getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3));
 
-  for (int var = 0; var < 2; var++) {
+  for (int var = 0; var < 1; var++) {
     cv::Mat eroded_mask;
     erode(mask, eroded_mask, kernel);
     mask = eroded_mask;
   }
 
-  for (int var = 0; var < 2; var++)
+  for (int var = 0; var < 1; var++)
   {
   cv::Mat dilated_mask;
   dilate(mask, dilated_mask, kernel);
@@ -280,12 +337,13 @@ void MainWindow4::CustomLabel::mousePressEvent(QMouseEvent *event)
   int h = lab->height();
   lab->setPixmap( m.scaled(w,h) );
 
-   x_for_z = x;
-   y_for_z = y;
+   x_for_z = x_center;
+   y_for_z = y_center;
 
-  _x1 =-(x - x_of_center);
-  _y1 = y - y_of_center;
-
+  _x1 =-(x_center - x_of_center);
+  _y1 = y_center - y_of_center;
+  send_x2 = _x1;
+  send_y2 = _y1;
   x_label->setNum(_x1);
   y_label->setNum(_y1);
 }
@@ -299,16 +357,120 @@ void MainWindow4::on_pushButton_2_clicked()
   twist_msg.linear.y = _y1;
   twist_msg.linear.z = _z1;
   pub1.publish(twist_msg);*/
-  string s = "rosrun template_gui_package control 0 " + std::to_string( (_x1+0.0)/1000)+" "+std::to_string((_y1+0.0)/1000)+ " "+std::to_string((_z1+0.0)/1000)+" &";
+  /*string s = "rosrun template_gui_package control 0 " + std::to_string( (_x1+0.0)/1000)+" "+std::to_string((_y1+0.0)/1000)+ " "+std::to_string((_z1+0.0)/1000)+" &";
   const char * s1 = s.c_str();
   qDebug()<<s1;
-  system(s1);
+  system(s1);*/
+
+  RRTstar3D *ARM1 = new RRTstar3D(max_x1, max_y1, max_z1, min_x1, min_y1, min_z1,20, 10);
+  ARM1->get_safety_dist(2);
+  //ARM1->get_obstract_point(20, 20,20);
+  Point3D sour(e_send_x1, e_send_y1, e_send_z1);
+  Point3D fi(send_x1, send_y1, send_z1);
+  if (fi == sour) return;
+  int time_for_all = 50;
+  ARM1->set_start_and_goal(sour, fi,time_for_all);
+  ARM1->go();
+  //ARM1->print_path_for_amin();
+  //ARM1->rebootAll(reboot_obsract);
+  vector<Point3DForAmin*>path1 = ARM1->pathForAmin;
+
+  RRTstar3D *ARM2 = new RRTstar3D(max_x2, max_y2, max_z2, min_x2, min_y2, min_z2,20, 10);
+  ARM2->get_safety_dist(2);
+  //ARM1->get_obstract_point(20, 20,20);
+
+  Point3D sour2(e_send_x2, e_send_y2, e_send_z2);
+  Point3D fi2(send_x2, send_y2, send_z2);
+  if (fi2 == sour2) return;
+//  int time_for_all = 50;
+  ARM2->set_start_and_goal(sour2, fi2,time_for_all);
+  ARM2->go();
+  vector<Point3DForAmin*>path2 = ARM2->pathForAmin;
+
+  int i=0;
+  int j=0;
+
+  geometry_msgs::Twist twist_msg;
+//  qDebug() << path1.size() <<path2.size();
+  ros::Rate rate(30);
+
+  while (i<path1.size() || j<path2.size())
+  {
+    //qDebug() << i << j << path1.size()<<path2.size();
+    double vx1,vy1,vz1,vx2,vy2,vz2;
+
+    if(i < path1.size())
+    {
+      vx1 = 0*path1[i]->vx;
+      vy1 =0* path1[i]->vy;
+      vz1 = 0*path1[i]->vz;
+      i++;
+    }
+    else {
+      vx1 = 0;
+      vy1 = 0;
+      vz1 = 0;
+    }
+
+    if(j < path2.size())
+    {
+      vx2 = path2[j]->vx;
+      vy2 = path2[j]->vy;
+      vz2 = path2[j]->vz;
+      j++;
+    }
+    else {
+      vx2 = 0;
+      vy2 = 0;
+      vz2 = 0;
+    }
+    twist_msg.linear.x = vx1;
+    twist_msg.linear.y = vy1;
+    twist_msg.linear.z = vz1;
+
+    twist_msg.angular.x = vx2;
+    twist_msg.angular.y = vy2;
+    twist_msg.angular.z = vz2;
+
+    //qDebug() << vx1 << vy1 << vz1 << vx2<< vy2<<vz2 ;
+    JR.publish(twist_msg);
+    rate.sleep();
+  }
+
+  //qDebug()<<"ali";
+  e_send_x1 = send_x1;
+  e_send_y1 = send_y1;
+  e_send_z1 = send_z1;
+
+  e_send_x2 = send_x1;
+  e_send_y2 = send_y2;
+  e_send_z2 = send_z2;
+
+
+  delete ARM1;
+  delete ARM2;
+
 }
 
 
 
 void MainWindow4::on_lineEdit_editingFinished()
 {
-  ddd = ui->lineEdit->text().toInt();
-  ui->lineEdit->clear();
+ // ddd = ui->lineEdit->text().toInt();
+ // ui->lineEdit->clear();
+}
+
+void MainWindow4::on_take_first_clicked()
+{
+   send_x1 = ui->label_6->text().toInt();
+   send_y1 = ui->label_7->text().toInt();
+   send_z1 = ui->label_8->text().toInt();
+   f = true;
+}
+
+void MainWindow4::on_take_second_clicked()
+{
+  send_x2 = ui->label_6->text().toInt();
+  send_y2 = ui->label_7->text().toInt();
+  send_z2 = ui->label_8->text().toInt();
 }

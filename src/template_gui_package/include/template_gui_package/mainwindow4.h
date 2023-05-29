@@ -26,6 +26,7 @@
 #endif
 
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <libfreenect.h>
@@ -105,6 +106,10 @@ private slots:
 
     void on_lineEdit_editingFinished();
 
+    void on_take_first_clicked();
+
+    void on_take_second_clicked();
+
 private:
   Ui::MainWindow4 *ui;
   QTimer *ros_timer;
@@ -112,10 +117,12 @@ private:
   ros::NodeHandlePtr RGBptr;
   ros::NodeHandlePtr DEPptr;
   ros::NodeHandlePtr pub1ptr;
+  ros::NodeHandlePtr JRptr;
 
   ros::Subscriber RGB;
   ros::Subscriber DEP;
   ros::Publisher pub1;
+  ros::Publisher JR;
 
 //  freenect_context *context;
 };

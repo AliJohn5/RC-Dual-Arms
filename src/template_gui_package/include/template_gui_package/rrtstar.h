@@ -12,14 +12,15 @@
 #include<set>
 #include <random>
 
-#define endl '\n'
+//#define endl '\n'
 #define reboot_obsract true
 #define dont_reboot_obsract false
 
 
 using std::vector;
 using std::set;
-using std::cout;
+//using std::cout;
+//using std::endl;
 
 std::random_device rd;
 std::mt19937 gen(rd());
@@ -227,12 +228,12 @@ void RRTstar3D::get_obstract_point(int _x, int _y, int _z)
 
 void RRTstar3D::print_the_path()
 {
-  cout << "path from ( " << start.x << ", " << start.y << " ," << start.z << " ) to ( ";
+ /* cout << "path from ( " << start.x << ", " << start.y << " ," << start.z << " ) to ( ";
   cout << goal.x << ", " << goal.y << ", " << goal.z << " ) with "<<path.size()<<" point is:"<<endl;
   for (int i = 0; i < path.size(); i++)
   {
     cout << "( " << path[i].x << " , " << path[i].y << " , " << path[i].z << " )" << "  cost: "<< path[i].cost<< endl;
-  }
+  }*/
 }
 
 void RRTstar3D::set_start_and_goal(Point3D _start, Point3D _goal, int time_for_all_points)
@@ -307,6 +308,7 @@ Point3D* RRTstar3D::random_point()
 
 void RRTstar3D::print_path_for_amin()
 {
+  /*
     cout << "path from ( " << start.x << ", " << start.y << " ," << start.z << " ) to ( ";
   cout << goal.x << ", " << goal.y << ", " << goal.z << " ) with "<<path.size()<<" point is:"<<endl;
   for (int i = 0; i < pathForAmin.size(); i++)
@@ -315,6 +317,7 @@ void RRTstar3D::print_path_for_amin()
     cout << "( " << pathForAmin[i]->vx << " , " << pathForAmin[i]->vy << " , " << pathForAmin[i]->vz << " )" << endl;
         cout << "______________" <<endl;
   }
+  */
 }
 
 

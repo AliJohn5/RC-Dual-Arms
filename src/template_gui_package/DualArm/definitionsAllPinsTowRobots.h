@@ -41,9 +41,9 @@
 #define R2shoulderLimit 22 // Normaly Closed (true)
 #define R2elbowLimit 25    // Normaly Open (false)
 
-#define R1baseLimit 24
-#define R1shoulderLimit 26   // Normaly Open (false)
-#define R1elbowBackLimit 27  // Normaly Open (false)
+#define R1baseLimit 0
+#define R1shoulderLimit 8   // Normaly Open (false)
+#define R1elbowBackLimit 24  // Normaly Open (false)
 #define R1elbowFrontLimit 28 // Normaly Open (false)
 
 #define motorInterfaceType 1
@@ -199,7 +199,8 @@ void zero() {
     if (R1 && R2)
       break;
   }
-  R1 = !R1;
+  //R1 = !R1;
+  R1= true;
   R2 = !R2;
   R1shoulder.setCurrentPosition(R1ZeroSteps[1]);
   R2shoulder.setCurrentPosition(R2ZeroSteps[1]);

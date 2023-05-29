@@ -759,7 +759,6 @@ template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /home/alijohn/De
 template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/mainwindow2.h
 template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/mainwindow3.h
 template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/mainwindow4.h
-template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/rrtstar.h
 template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/src/hello_gui.cpp
 template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /opt/ros/noetic/include/cv_bridge/cv_bridge.h
 template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h
@@ -2430,6 +2429,7 @@ template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /home/alijohn/
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/mainwindow2.h
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/mainwindow3.h
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/mainwindow4.h
+template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/rrtstar.h
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /home/alijohn/Desktop/temp_for_gui/src/template_gui_package/src/mainwindow4.cpp
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /opt/ros/noetic/include/cv_bridge/cv_bridge.h
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /opt/ros/noetic/include/geometry_msgs/Twist.h
@@ -2957,7 +2957,6 @@ template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
-template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit

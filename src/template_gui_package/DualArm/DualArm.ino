@@ -32,7 +32,7 @@ ros::Subscriber<std_msgs::Float32MultiArray> ACTION("dual_arm", ActionCb );
 void setup() {
   initial();
   //servocon = 0.05; // servo factor, the higher the faster
-  //zero();
+  zero();
    R1base.setCurrentPosition(R1ZeroSteps[0]);
   R2base.setCurrentPosition(R2ZeroSteps[0]);
   R1shoulder.setCurrentPosition(R1ZeroSteps[1]);
@@ -41,14 +41,15 @@ void setup() {
   R2elbow.setCurrentPosition(R2ZeroSteps[2]);
     R1wrist.setCurrentPosition(R1ZeroSteps[3]);
   ROS_properities();
-
+Serial.begin(9600);
 
 
 }
 void loop() {
+  Serial.println(digitalRead(8));
   if (state == 2)
     Jacobian();
-  else if (state == 0 || state == 1)
+  else if (state == 0 || state == 1 || state ==4)
     IK_FK();
   else if (state == 3)
     zero();
