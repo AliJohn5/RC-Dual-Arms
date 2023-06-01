@@ -43,20 +43,19 @@
 
 #define R1baseLimit 0
 #define R1shoulderLimit 8   // Normaly Open (false)
-#define R1elbowBackLimit 24  // Normaly Open (false)
-#define R1elbowFrontLimit 28 // Normaly Open (false)
+#define R1elbowLimit 24  // Normaly Open (false)
 
 #define motorInterfaceType 1
 
 /* zero angles */
-#define R1theta1 0
+#define R1theta1 90
 #define R1theta2 125
-#define R1theta3 90
-#define R1theta4 90
+#define R1theta3 -97
+#define R1theta4 -78
 
 #define R2theta1 166 //167
-#define R2theta2 50
-#define R2theta3 -5
+#define R2theta2 53
+#define R2theta3 -7
 #define R2theta4 130
 /* Transmition Values*/
 #define R1BaseTr 3.3
@@ -101,7 +100,7 @@ AccelStepper R1base = AccelStepper(motorInterfaceType, R1[1][0], R1[0][0]);
 AccelStepper R1shoulder = AccelStepper(motorInterfaceType,  R1[1][1], R1[0][1]);
 AccelStepper R1elbow = AccelStepper(motorInterfaceType,  R1[1][2], R1[0][2]);
 AccelStepper R1wrist = AccelStepper(motorInterfaceType,  R1[1][3], R1[0][3]);
-AccelStepper R1EndEffector = AccelStepper(4, R1BYJstepsPerRevolution, R1EndEffIN1BYJ, R1EndEffIN2BYJ, R1EndEffIN3BYJ, R1EndEffIN4BYJ);
+AccelStepper  R1EndEffector(4, 39, 38, 37, 36);
 
 AccelStepper R2base = AccelStepper(motorInterfaceType, R2[1][0], R2[0][0]);
 AccelStepper R2shoulder = AccelStepper(motorInterfaceType, R2[1][1], R2[0][1]);
@@ -126,8 +125,8 @@ void initial() {
   R1elbow.setAcceleration(70000);
   R1wrist.setMaxSpeed(20000);
   R1wrist.setAcceleration(70000);
-  R1EndEffector.setMaxSpeed(10000);
-  R1EndEffector.setAcceleration(1000);
+  R1EndEffector.setMaxSpeed(100);
+  R1EndEffector.setAcceleration(20);
   R1EndEff.attach(R1EndEffPin);
 
   R2base.setMaxSpeed(10000); // Speed unit : [step/s] steps per seconds.
@@ -142,15 +141,14 @@ void initial() {
   pinMode(R2baseLimit, INPUT);
   pinMode(R2shoulderLimit, INPUT);
   pinMode(R2elbowLimit, INPUT);
-  pinMode(R1elbowFrontLimit, INPUT);
+  pinMode(R1elbowLimit, INPUT);
   pinMode(R1shoulderLimit, INPUT);
-  pinMode(R1elbowBackLimit, INPUT);
-
-  /*tow_arms_steppers.addStepper(R1base);
+  Serial.begin(115200);
+  tow_arms_steppers.addStepper(R1base);
   tow_arms_steppers.addStepper(R1shoulder);
   tow_arms_steppers.addStepper(R1elbow);
-  tow_arms_steppers.addStepper(R1wrist);*/
-
+  tow_arms_steppers.addStepper(R1wrist);
+  tow_arms_steppers.addStepper(R1EndEffector);
   tow_arms_steppers.addStepper(R2base);
   tow_arms_steppers.addStepper(R2shoulder);
   tow_arms_steppers.addStepper(R2elbow);
@@ -199,13 +197,13 @@ void zero() {
     if (R1 && R2)
       break;
   }
-  //R1 = !R1;
+  R1 = !R1;
   R1= true;
   R2 = !R2;
   R1shoulder.setCurrentPosition(R1ZeroSteps[1]);
   R2shoulder.setCurrentPosition(R2ZeroSteps[1]);
   while (true) {
-    bool x1 = digitalRead(R1elbowFrontLimit);
+    bool x1 = digitalRead(R1elbowLimit);
     bool x2 = digitalRead(R2elbowLimit);
     if (x2 && !R2) {
       R2elbow.setSpeed(-1000);
@@ -217,7 +215,7 @@ void zero() {
       R2 = !R2;
     }
     if (!x1 && !R1) {
-      R1elbow.setSpeed(2000);
+      R1elbow.setSpeed(-2000);
       R1elbow.runSpeed();
     }
     else {
@@ -232,7 +230,6 @@ void zero() {
   R2elbow.setCurrentPosition(R2ZeroSteps[2]);
   R1 = !R1;
   R2 = !R2;
-
-  R1wrist.setCurrentPosition(R1ZeroSteps[3]);
+  R1EndEffector.setCurrentPosition(0);
 }
 #endif // DEFINITIONSALLPINSTOWROBOTS_H_INCLUDED

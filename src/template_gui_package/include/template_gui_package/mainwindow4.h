@@ -31,6 +31,8 @@
 #include <stdlib.h>
 #include <libfreenect.h>
 
+#include<QProcess>
+
 #define FREENECT_FRAME_H 480
 #define FREENECT_FRAME_W 640
 
@@ -104,11 +106,13 @@ public slots:
 private slots:
     void on_pushButton_2_clicked();
 
-    void on_lineEdit_editingFinished();
-
     void on_take_first_clicked();
 
     void on_take_second_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_3_clicked();
 
 private:
   Ui::MainWindow4 *ui;
@@ -123,6 +127,7 @@ private:
   ros::Subscriber DEP;
   ros::Publisher pub1;
   ros::Publisher JR;
+
 
 //  freenect_context *context;
 };

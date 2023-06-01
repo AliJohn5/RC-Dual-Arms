@@ -5,13 +5,16 @@
 #include "mainwindow3.h"
 #include "mainwindow4.h"
 #include <QMessageBox>
-
+#include <QApplication>
+#include<QScreen>
+#include<QWidget>
 static QString qstring_msg;
 //using namespace cv;
 
 
 
 //using namespace ali;
+
 
 bool is_Kinect_running = false;
 const char * Kinect = "rosrun template_gui_package Kinect &";
@@ -84,17 +87,37 @@ void helloGui::spin()
 
 void helloGui::openSecondWindow() {
   hide();
+
+  QScreen *screen = QGuiApplication::primaryScreen();
+
+  // Calculate the center point of the screen
+  QPoint center = screen->geometry().center();
+  // Set the widget's position to the center of the screen
+  second->move(center - second->rect().center());
   second->show();
 }
 
 void helloGui::openwin3()
 {
   hide();
+  QScreen *screen = QGuiApplication::primaryScreen();
+
+  // Calculate the center point of the screen
+  QPoint center = screen->geometry().center();
+  // Set the widget's position to the center of the screen
+  win3->move(center - win3->rect().center());
   win3->show();
 }
 void helloGui::openwin4()
 {
   hide();
+  QScreen *screen = QGuiApplication::primaryScreen();
+
+  // Calculate the center point of the screen
+  QPoint center = screen->geometry().center();
+  // Set the widget's position to the center of the screen
+  win4->move(center - win4->rect().center());
+
   win4->show();
 }
 

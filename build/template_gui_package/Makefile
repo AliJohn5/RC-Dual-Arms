@@ -101,6 +101,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -123,17 +134,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -211,21 +211,6 @@ geometry_msgs_generate_messages_cpp: template_gui_package/CMakeFiles/geometry_ms
 geometry_msgs_generate_messages_cpp/fast:
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make template_gui_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 .PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
 template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
@@ -348,6 +333,21 @@ roscpp_generate_messages_nodejs/fast:
 .PHONY : roscpp_generate_messages_nodejs/fast
 
 # Convenience name for target.
+template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
 template_gui_package/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : template_gui_package/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -468,6 +468,36 @@ std_msgs_generate_messages_nodejs/fast:
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make template_gui_package/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+# Convenience name for target.
+template_gui_package/CMakeFiles/control2.dir/rule:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/control2.dir/rule
+.PHONY : template_gui_package/CMakeFiles/control2.dir/rule
+
+# Convenience name for target.
+control2: template_gui_package/CMakeFiles/control2.dir/rule
+
+.PHONY : control2
+
+# fast build rule for target.
+control2/fast:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/build
+.PHONY : control2/fast
+
+# Convenience name for target.
 template_gui_package/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 .PHONY : template_gui_package/CMakeFiles/roscpp_generate_messages_eus.dir/rule
@@ -573,19 +603,19 @@ control/fast:
 .PHONY : control/fast
 
 # Convenience name for target.
-template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+template_gui_package/CMakeFiles/control2_autogen.dir/rule:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f CMakeFiles/Makefile2 template_gui_package/CMakeFiles/control2_autogen.dir/rule
+.PHONY : template_gui_package/CMakeFiles/control2_autogen.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+control2_autogen: template_gui_package/CMakeFiles/control2_autogen.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_cpp
+.PHONY : control2_autogen
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make template_gui_package/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+control2_autogen/fast:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2_autogen.dir/build.make template_gui_package/CMakeFiles/control2_autogen.dir/build
+.PHONY : control2_autogen/fast
 
 # Convenience name for target.
 template_gui_package/CMakeFiles/Kinect_autogen.dir/rule:
@@ -740,6 +770,60 @@ RCArms_autogen/mocs_compilation.cpp.s:
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/RCArms_autogen/mocs_compilation.cpp.s
 .PHONY : RCArms_autogen/mocs_compilation.cpp.s
 
+control2_autogen/UVLADIE3JM/qrc_res.o: control2_autogen/UVLADIE3JM/qrc_res.cpp.o
+
+.PHONY : control2_autogen/UVLADIE3JM/qrc_res.o
+
+# target to build an object file
+control2_autogen/UVLADIE3JM/qrc_res.cpp.o:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/control2_autogen/UVLADIE3JM/qrc_res.cpp.o
+.PHONY : control2_autogen/UVLADIE3JM/qrc_res.cpp.o
+
+control2_autogen/UVLADIE3JM/qrc_res.i: control2_autogen/UVLADIE3JM/qrc_res.cpp.i
+
+.PHONY : control2_autogen/UVLADIE3JM/qrc_res.i
+
+# target to preprocess a source file
+control2_autogen/UVLADIE3JM/qrc_res.cpp.i:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/control2_autogen/UVLADIE3JM/qrc_res.cpp.i
+.PHONY : control2_autogen/UVLADIE3JM/qrc_res.cpp.i
+
+control2_autogen/UVLADIE3JM/qrc_res.s: control2_autogen/UVLADIE3JM/qrc_res.cpp.s
+
+.PHONY : control2_autogen/UVLADIE3JM/qrc_res.s
+
+# target to generate assembly for a file
+control2_autogen/UVLADIE3JM/qrc_res.cpp.s:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/control2_autogen/UVLADIE3JM/qrc_res.cpp.s
+.PHONY : control2_autogen/UVLADIE3JM/qrc_res.cpp.s
+
+control2_autogen/mocs_compilation.o: control2_autogen/mocs_compilation.cpp.o
+
+.PHONY : control2_autogen/mocs_compilation.o
+
+# target to build an object file
+control2_autogen/mocs_compilation.cpp.o:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/control2_autogen/mocs_compilation.cpp.o
+.PHONY : control2_autogen/mocs_compilation.cpp.o
+
+control2_autogen/mocs_compilation.i: control2_autogen/mocs_compilation.cpp.i
+
+.PHONY : control2_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+control2_autogen/mocs_compilation.cpp.i:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/control2_autogen/mocs_compilation.cpp.i
+.PHONY : control2_autogen/mocs_compilation.cpp.i
+
+control2_autogen/mocs_compilation.s: control2_autogen/mocs_compilation.cpp.s
+
+.PHONY : control2_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+control2_autogen/mocs_compilation.cpp.s:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/control2_autogen/mocs_compilation.cpp.s
+.PHONY : control2_autogen/mocs_compilation.cpp.s
+
 control_autogen/UVLADIE3JM/qrc_res.o: control_autogen/UVLADIE3JM/qrc_res.cpp.o
 
 .PHONY : control_autogen/UVLADIE3JM/qrc_res.o
@@ -875,12 +959,40 @@ nodes/control.cpp.s:
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/nodes/control.cpp.s
 .PHONY : nodes/control.cpp.s
 
+nodes/control2.o: nodes/control2.cpp.o
+
+.PHONY : nodes/control2.o
+
+# target to build an object file
+nodes/control2.cpp.o:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/nodes/control2.cpp.o
+.PHONY : nodes/control2.cpp.o
+
+nodes/control2.i: nodes/control2.cpp.i
+
+.PHONY : nodes/control2.i
+
+# target to preprocess a source file
+nodes/control2.cpp.i:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/nodes/control2.cpp.i
+.PHONY : nodes/control2.cpp.i
+
+nodes/control2.s: nodes/control2.cpp.s
+
+.PHONY : nodes/control2.s
+
+# target to generate assembly for a file
+nodes/control2.cpp.s:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/nodes/control2.cpp.s
+.PHONY : nodes/control2.cpp.s
+
 src/hello_gui.o: src/hello_gui.cpp.o
 
 .PHONY : src/hello_gui.o
 
 # target to build an object file
 src/hello_gui.cpp.o:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/hello_gui.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/hello_gui.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/hello_gui.cpp.o
@@ -892,6 +1004,7 @@ src/hello_gui.i: src/hello_gui.cpp.i
 
 # target to preprocess a source file
 src/hello_gui.cpp.i:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/hello_gui.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/hello_gui.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/hello_gui.cpp.i
@@ -903,6 +1016,7 @@ src/hello_gui.s: src/hello_gui.cpp.s
 
 # target to generate assembly for a file
 src/hello_gui.cpp.s:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/hello_gui.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/hello_gui.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/hello_gui.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/hello_gui.cpp.s
@@ -914,6 +1028,7 @@ src/mainwindow2.o: src/mainwindow2.cpp.o
 
 # target to build an object file
 src/mainwindow2.cpp.o:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow2.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow2.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow2.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow2.cpp.o
@@ -925,6 +1040,7 @@ src/mainwindow2.i: src/mainwindow2.cpp.i
 
 # target to preprocess a source file
 src/mainwindow2.cpp.i:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow2.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow2.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow2.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow2.cpp.i
@@ -936,6 +1052,7 @@ src/mainwindow2.s: src/mainwindow2.cpp.s
 
 # target to generate assembly for a file
 src/mainwindow2.cpp.s:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow2.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow2.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow2.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow2.cpp.s
@@ -947,6 +1064,7 @@ src/mainwindow3.o: src/mainwindow3.cpp.o
 
 # target to build an object file
 src/mainwindow3.cpp.o:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow3.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow3.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow3.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow3.cpp.o
@@ -958,6 +1076,7 @@ src/mainwindow3.i: src/mainwindow3.cpp.i
 
 # target to preprocess a source file
 src/mainwindow3.cpp.i:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow3.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow3.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow3.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow3.cpp.i
@@ -969,6 +1088,7 @@ src/mainwindow3.s: src/mainwindow3.cpp.s
 
 # target to generate assembly for a file
 src/mainwindow3.cpp.s:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow3.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow3.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow3.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow3.cpp.s
@@ -980,6 +1100,7 @@ src/mainwindow4.o: src/mainwindow4.cpp.o
 
 # target to build an object file
 src/mainwindow4.cpp.o:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow4.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow4.cpp.o
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o
@@ -991,6 +1112,7 @@ src/mainwindow4.i: src/mainwindow4.cpp.i
 
 # target to preprocess a source file
 src/mainwindow4.cpp.i:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow4.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow4.cpp.i
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.i
@@ -1002,6 +1124,7 @@ src/mainwindow4.s: src/mainwindow4.cpp.s
 
 # target to generate assembly for a file
 src/mainwindow4.cpp.s:
+	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control2.dir/build.make template_gui_package/CMakeFiles/control2.dir/src/mainwindow4.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/Kinect.dir/build.make template_gui_package/CMakeFiles/Kinect.dir/src/mainwindow4.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/RCArms.dir/build.make template_gui_package/CMakeFiles/RCArms.dir/src/mainwindow4.cpp.s
 	cd /home/alijohn/Desktop/temp_for_gui/build && $(MAKE) -f template_gui_package/CMakeFiles/control.dir/build.make template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.s
@@ -1020,7 +1143,6 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_py"
@@ -1029,6 +1151,8 @@ help:
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
@@ -1037,6 +1161,8 @@ help:
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... control2"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
@@ -1046,8 +1172,7 @@ help:
 	@echo "... Kinect"
 	@echo "... RCArms"
 	@echo "... control"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... test"
+	@echo "... control2_autogen"
 	@echo "... Kinect_autogen"
 	@echo "... RCArms_autogen"
 	@echo "... control_autogen"
@@ -1063,6 +1188,12 @@ help:
 	@echo "... RCArms_autogen/mocs_compilation.o"
 	@echo "... RCArms_autogen/mocs_compilation.i"
 	@echo "... RCArms_autogen/mocs_compilation.s"
+	@echo "... control2_autogen/UVLADIE3JM/qrc_res.o"
+	@echo "... control2_autogen/UVLADIE3JM/qrc_res.i"
+	@echo "... control2_autogen/UVLADIE3JM/qrc_res.s"
+	@echo "... control2_autogen/mocs_compilation.o"
+	@echo "... control2_autogen/mocs_compilation.i"
+	@echo "... control2_autogen/mocs_compilation.s"
 	@echo "... control_autogen/UVLADIE3JM/qrc_res.o"
 	@echo "... control_autogen/UVLADIE3JM/qrc_res.i"
 	@echo "... control_autogen/UVLADIE3JM/qrc_res.s"
@@ -1078,6 +1209,9 @@ help:
 	@echo "... nodes/control.o"
 	@echo "... nodes/control.i"
 	@echo "... nodes/control.s"
+	@echo "... nodes/control2.o"
+	@echo "... nodes/control2.i"
+	@echo "... nodes/control2.s"
 	@echo "... src/hello_gui.o"
 	@echo "... src/hello_gui.i"
 	@echo "... src/hello_gui.s"

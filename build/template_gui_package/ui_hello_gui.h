@@ -173,7 +173,7 @@ public:
         pushButton->setText(QApplication::translate("helloGui", "rosrun Kinect", nullptr));
         pushButton_7->setText(QApplication::translate("helloGui", "window 2", nullptr));
         pushButton_8->setText(QApplication::translate("helloGui", "window 3", nullptr));
-        pushButton_9->setText(QApplication::translate("helloGui", "Inverse", nullptr));
+        pushButton_9->setText(QApplication::translate("helloGui", "control", nullptr));
         toolBar->setWindowTitle(QApplication::translate("helloGui", "toolBar", nullptr));
     } // retranslateUi
 

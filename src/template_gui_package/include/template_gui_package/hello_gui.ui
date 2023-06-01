@@ -129,7 +129,7 @@ QPushButton:hover {
 }</string>
         </property>
         <property name="text">
-         <string>Inverse</string>
+         <string>control</string>
         </property>
        </widget>
       </item>

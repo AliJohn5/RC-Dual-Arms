@@ -4,15 +4,21 @@
 #include<string.h>
 #include <geometry_msgs/Twist.h>
 #include "rrtstar.h"
+#include<QMessageBox>
+#include <QProcess>
 //using namespace ali;
 
 #ifndef INF
 #define INF 10000000
 #endif
 
+bool is_Kinect_running1 = false;
+const char * Kinect1 = "rosrun template_gui_package Kinect &";
+const char * killKinect1 = "rosnode kill /Kinect1 &";
 using std::string;
 
 bool f = false;
+bool first_move = false;
 static cv::Mat image;
 static cv::Mat image2;
 
@@ -52,6 +58,9 @@ int y_for_z ;
 static QLabel* lab;
 static QLabel* lab2;
 
+QProcess process;
+
+QString output;
 
 int _x1=0;
 int _y1=0;
@@ -86,6 +95,10 @@ QLabel *x_label;
 QLabel *y_label;
 
 
+bool IsNodeRunning(const std::string& node_name);
+
+
+
 
 MainWindow4::MainWindow4(QWidget *parent) :
   QMainWindow(parent),
@@ -111,10 +124,34 @@ MainWindow4::MainWindow4(QWidget *parent) :
 //  sub = nhPtr->subscribe<sensor_msgs::Image>("/talker/frame",1,&MainWindow4::imageCallback,this);
 //  sub1 = nhPtr1->subscribe<sensor_msgs::Image>("/frame2/frame2",1,&MainWindow4::imageCallback1,this);
 
+
   pub1 = pub1ptr->advertise<geometry_msgs::Twist>("/point",10);
   RGB = RGBptr->subscribe<sensor_msgs::Image>("/rgb_image",1,&MainWindow4::RGBcallback,this);
   DEP = DEPptr->subscribe<sensor_msgs::Image>("/depth_image",1,&MainWindow4::DEPcallback,this);
   JR = JRptr->advertise<geometry_msgs::Twist>("/JR",50);
+  QObject::connect(ui->lineEdit,&QLineEdit::editingFinished,[&]()
+  {
+    QString command = ui->lineEdit->text();
+    process.setProgram("/bin/sh");
+    process.setArguments({"-c",command});
+    process.start();
+    output = process.readAllStandardOutput();
+  }
+  );
+  QObject::connect(&process,&QProcess::readyReadStandardOutput,[&]()
+  {
+    output = process.readAllStandardOutput();
+    ui->textEdit->moveCursor(QTextCursor::End);
+    ui->textEdit->insertPlainText(output);
+    ui->textEdit->moveCursor(QTextCursor::End);
+    ui->textEdit->show();
+  });
+
+  QObject::connect(&process,&QProcess::errorOccurred,[&](QProcess::ProcessError error)
+  {
+    QString errormsg = "Error occured: " + QString::number(error);
+    QMessageBox::critical(this,"Error",errormsg);
+  });
 
 }
 
@@ -176,6 +213,9 @@ void MainWindow4::RGBcallback(const sensor_msgs::Image::ConstPtr &msg)
   int w = ui->label->width();
   int h = ui->label->height();
   ui->label ->setPixmap( m.scaled(w,h) );
+  //QVBoxLayout layout(this);
+  //layout.addWidget(ui->label);
+  // Set the size policy of the widget to QSizePolicy::Fixed or QSizePolicy::Minimum
 }
 
 void MainWindow4::DEPcallback(const sensor_msgs::Image::ConstPtr &msg)
@@ -193,8 +233,8 @@ void MainWindow4::DEPcallback(const sensor_msgs::Image::ConstPtr &msg)
 */
   if (_z1 < 0) _z1 = 0;
   if (_z1 > 280) _z1 = 280;
-  send_z2 = _z1;
-  ui->label_8->setNum(_z1);
+  send_z2 = _z1/10;
+  ui->label_8->setNum(send_z2);
 }
 
 
@@ -337,15 +377,16 @@ void MainWindow4::CustomLabel::mousePressEvent(QMouseEvent *event)
   int h = lab->height();
   lab->setPixmap( m.scaled(w,h) );
 
+
    x_for_z = x_center;
    y_for_z = y_center;
 
   _x1 =-(x_center - x_of_center);
   _y1 = y_center - y_of_center;
-  send_x2 = _x1;
-  send_y2 = _y1;
-  x_label->setNum(_x1);
-  y_label->setNum(_y1);
+  send_x2 = _x1/7;
+  send_y2 = _y1/7;
+  x_label->setNum(send_x2);
+  y_label->setNum(send_y2);
 }
 
 
@@ -362,6 +403,18 @@ void MainWindow4::on_pushButton_2_clicked()
   qDebug()<<s1;
   system(s1);*/
 
+  if(!first_move)
+  {
+    string s = "rosrun template_gui_package control 5"
+        +' ' + std::to_string(send_x1) + " " +std::to_string(send_y1) + " " +std::to_string(send_z1)
+        +' ' + std::to_string(send_x2) + " " +std::to_string(send_y2) + " " +std::to_string(send_z2)
+        +" ";
+    system(s.c_str());
+    cv::waitKey(1000);
+    system("rosnode kill /DUAL &");
+    first_move = !first_move;
+    return;
+  }
   RRTstar3D *ARM1 = new RRTstar3D(max_x1, max_y1, max_z1, min_x1, min_y1, min_z1,20, 10);
   ARM1->get_safety_dist(2);
   //ARM1->get_obstract_point(20, 20,20);
@@ -453,13 +506,6 @@ void MainWindow4::on_pushButton_2_clicked()
 }
 
 
-
-void MainWindow4::on_lineEdit_editingFinished()
-{
- // ddd = ui->lineEdit->text().toInt();
- // ui->lineEdit->clear();
-}
-
 void MainWindow4::on_take_first_clicked()
 {
    send_x1 = ui->label_6->text().toInt();
@@ -474,3 +520,44 @@ void MainWindow4::on_take_second_clicked()
   send_y2 = ui->label_7->text().toInt();
   send_z2 = ui->label_8->text().toInt();
 }
+
+void MainWindow4::on_pushButton_clicked()
+{
+    string s = "rosrun template_gui_package control 3 & ";
+    if(!IsNodeRunning("DUAL"))
+    {
+       system(s.c_str());
+       ui->pushButton->setText("switch zero off");
+    }
+    else
+    {
+      system("rosnode kill /DUAL &");
+      ui->pushButton->setText("switch zero on");
+    }
+}
+
+void MainWindow4::on_pushButton_3_clicked()
+{
+  bool is_error = false;
+  if (IsNodeRunning("Kinect1"))
+  {
+   int result = QMessageBox::question(this,"Running Kinect","Kinect is already runnig, Do you want to Kill it?", QMessageBox::Yes | QMessageBox::No);
+   if(result == QMessageBox::Yes)
+   {
+     system(killKinect1);
+     ui->pushButton_3->setText("switch kinect on");
+   }
+  }
+  else {
+    is_error = system(Kinect1);
+    ui->pushButton_3->setText("switch kinect off");
+  }
+
+  if(is_error)
+  {
+    system(killKinect1);
+    ui->pushButton_3->setText("switch kinect on");
+    QMessageBox::warning(this,"Runnin Error","I can't run Kinect, try to connect camera.");
+  }
+}
+

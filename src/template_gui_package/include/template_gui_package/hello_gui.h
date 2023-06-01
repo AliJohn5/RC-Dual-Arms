@@ -20,8 +20,12 @@
 #include <vector>
 #include<math.h>
 #include<QLabel>
+
 //#include "namespaceali.h"
 #endif
+#include <QWidget>
+#include<QScreen>
+#include<QApplication>
 
 #include "mainwindow2.h"
 #include "mainwindow3.h"
@@ -65,6 +69,7 @@ public:
   MainWindow3 *win3;
   MainWindow4 *win4;
   QPixmap  qim;
+  QScreen *screen = QGuiApplication::primaryScreen();
 
 public slots:
   void spinOnce();
@@ -81,6 +86,11 @@ public slots:
     void not_hide(bool f)
     {
       if(f)
+        screen = QGuiApplication::primaryScreen();
+        // Calculate the center point of the screen
+        QPoint center = screen->geometry().center();
+        // Set the widget's position to the center of the screen
+        move(center - rect().center());
       show();
     }
 
