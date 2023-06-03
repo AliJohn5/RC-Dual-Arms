@@ -19,7 +19,6 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
@@ -32,41 +31,43 @@ class Ui_MainWindow4
 {
 public:
     QWidget *centralwidget;
-    QVBoxLayout *verticalLayout_6;
-    QSplitter *splitter;
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout_7;
-    MainWindow4::CustomLabel *label;
-    QSpacerItem *horizontalSpacer;
-    QLabel *label_2;
-    QWidget *widget1;
-    QVBoxLayout *verticalLayout_5;
-    QFrame *line;
     QVBoxLayout *verticalLayout_4;
-    QLineEdit *lineEdit;
+    QSplitter *splitter_3;
+    QSplitter *splitter_2;
+    MainWindow4::CustomLabel *label;
+    QLabel *label_2;
+    QWidget *widget;
     QVBoxLayout *verticalLayout_3;
-    QFrame *line_2;
-    QHBoxLayout *horizontalLayout_8;
     QVBoxLayout *verticalLayout_2;
+    QFrame *line_3;
+    QHBoxLayout *horizontalLayout_8;
     QHBoxLayout *horizontalLayout_6;
+    QLabel *label_3;
+    QLineEdit *lineEdit;
+    QHBoxLayout *horizontalLayout_7;
+    QFrame *line_2;
+    QLabel *label_4;
+    QLineEdit *time_for_all;
+    QFrame *line;
+    QSplitter *splitter;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label_9;
     QLabel *label_6;
-    QHBoxLayout *horizontalLayout_5;
+    QHBoxLayout *horizontalLayout_4;
     QLabel *label_11;
     QLabel *label_7;
-    QHBoxLayout *horizontalLayout_4;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label_10;
     QLabel *label_8;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *horizontalLayout_2;
     QPushButton *take_first;
     QPushButton *take_second;
-    QHBoxLayout *horizontalLayout_2;
+    QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton;
-    QHBoxLayout *horizontalLayout;
-    QFrame *line_3;
     QPlainTextEdit *textEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -75,80 +76,117 @@ public:
     {
         if (MainWindow4->objectName().isEmpty())
             MainWindow4->setObjectName(QString::fromUtf8("MainWindow4"));
-        MainWindow4->resize(835, 583);
+        MainWindow4->resize(897, 602);
         centralwidget = new QWidget(MainWindow4);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        verticalLayout_6 = new QVBoxLayout(centralwidget);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        splitter = new QSplitter(centralwidget);
-        splitter->setObjectName(QString::fromUtf8("splitter"));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(splitter->sizePolicy().hasHeightForWidth());
-        splitter->setSizePolicy(sizePolicy);
-        splitter->setMinimumSize(QSize(0, 0));
-        splitter->setBaseSize(QSize(0, 0));
-        splitter->setFrameShape(QFrame::NoFrame);
-        splitter->setFrameShadow(QFrame::Raised);
-        splitter->setOrientation(Qt::Vertical);
-        splitter->setHandleWidth(10);
-        widget = new QWidget(splitter);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        horizontalLayout_7 = new QHBoxLayout(widget);
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label = new MainWindow4::CustomLabel(widget);
+        verticalLayout_4 = new QVBoxLayout(centralwidget);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        splitter_3 = new QSplitter(centralwidget);
+        splitter_3->setObjectName(QString::fromUtf8("splitter_3"));
+        splitter_3->setOrientation(Qt::Vertical);
+        splitter_2 = new QSplitter(splitter_3);
+        splitter_2->setObjectName(QString::fromUtf8("splitter_2"));
+        splitter_2->setOrientation(Qt::Horizontal);
+        splitter_2->setHandleWidth(14);
+        label = new MainWindow4::CustomLabel(splitter_2);
         label->setObjectName(QString::fromUtf8("label"));
         label->setStyleSheet(QString::fromUtf8("background-color: rgb(85, 87, 83);"));
-
-        horizontalLayout_7->addWidget(label);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer);
-
-        label_2 = new QLabel(widget);
+        splitter_2->addWidget(label);
+        label_2 = new QLabel(splitter_2);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setStyleSheet(QString::fromUtf8("background-color: rgb(85, 87, 83);"));
+        splitter_2->addWidget(label_2);
+        splitter_3->addWidget(splitter_2);
+        widget = new QWidget(splitter_3);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        verticalLayout_3 = new QVBoxLayout(widget);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        line_3 = new QFrame(widget);
+        line_3->setObjectName(QString::fromUtf8("line_3"));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
 
-        horizontalLayout_7->addWidget(label_2);
+        verticalLayout_2->addWidget(line_3);
 
-        splitter->addWidget(widget);
-        widget1 = new QWidget(splitter);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        verticalLayout_5 = new QVBoxLayout(widget1);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        line = new QFrame(widget1);
-        line->setObjectName(QString::fromUtf8("line"));
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"background-color: rgb(85, 87, 83);\n"
+"color: rgb(0, 0, 0);\n"
+"border-width: 2px;\n"
+"border-radius: 5px;\n"
+"padding: 10px;\n"
+"}"));
 
-        verticalLayout_5->addWidget(line);
+        horizontalLayout_6->addWidget(label_3);
 
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        lineEdit = new QLineEdit(widget1);
+        lineEdit = new QLineEdit(widget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
-        verticalLayout_4->addWidget(lineEdit);
+        horizontalLayout_6->addWidget(lineEdit);
 
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        line_2 = new QFrame(widget1);
+
+        horizontalLayout_8->addLayout(horizontalLayout_6);
+
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        line_2 = new QFrame(widget);
         line_2->setObjectName(QString::fromUtf8("line_2"));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
-        verticalLayout_3->addWidget(line_2);
+        horizontalLayout_7->addWidget(line_2);
 
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        label_4 = new QLabel(widget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"background-color: rgb(85, 87, 83);\n"
+"color: rgb(0, 0, 0);\n"
+"border-width: 2px;\n"
+"border-radius: 5px;\n"
+"padding: 10px;\n"
+"}"));
+
+        horizontalLayout_7->addWidget(label_4);
+
+        time_for_all = new QLineEdit(widget);
+        time_for_all->setObjectName(QString::fromUtf8("time_for_all"));
+
+        horizontalLayout_7->addWidget(time_for_all);
+
+
+        horizontalLayout_8->addLayout(horizontalLayout_7);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_8);
+
+        line = new QFrame(widget);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_2->addWidget(line);
+
+
+        verticalLayout_3->addLayout(verticalLayout_2);
+
+        splitter = new QSplitter(widget);
+        splitter->setObjectName(QString::fromUtf8("splitter"));
+        splitter->setOrientation(Qt::Horizontal);
+        widget1 = new QWidget(splitter);
+        widget1->setObjectName(QString::fromUtf8("widget1"));
+        verticalLayout = new QVBoxLayout(widget1);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label_9 = new QLabel(widget1);
         label_9->setObjectName(QString::fromUtf8("label_9"));
         label_9->setStyleSheet(QString::fromUtf8("QLabel{\n"
@@ -159,7 +197,7 @@ public:
 "padding: 10px;\n"
 "}"));
 
-        horizontalLayout_6->addWidget(label_9);
+        horizontalLayout_5->addWidget(label_9);
 
         label_6 = new QLabel(widget1);
         label_6->setObjectName(QString::fromUtf8("label_6"));
@@ -171,13 +209,13 @@ public:
 "padding: 10px;\n"
 "}"));
 
-        horizontalLayout_6->addWidget(label_6);
+        horizontalLayout_5->addWidget(label_6);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_6);
+        verticalLayout->addLayout(horizontalLayout_5);
 
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         label_11 = new QLabel(widget1);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setStyleSheet(QString::fromUtf8("QLabel{\n"
@@ -188,7 +226,7 @@ public:
 "padding: 10px;\n"
 "}"));
 
-        horizontalLayout_5->addWidget(label_11);
+        horizontalLayout_4->addWidget(label_11);
 
         label_7 = new QLabel(widget1);
         label_7->setObjectName(QString::fromUtf8("label_7"));
@@ -200,13 +238,13 @@ public:
 "padding: 10px;\n"
 "}"));
 
-        horizontalLayout_5->addWidget(label_7);
+        horizontalLayout_4->addWidget(label_7);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_5);
+        verticalLayout->addLayout(horizontalLayout_4);
 
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label_10 = new QLabel(widget1);
         label_10->setObjectName(QString::fromUtf8("label_10"));
         label_10->setStyleSheet(QString::fromUtf8("QLabel{\n"
@@ -217,7 +255,7 @@ public:
 "padding: 10px;\n"
 "}"));
 
-        horizontalLayout_4->addWidget(label_10);
+        horizontalLayout_3->addWidget(label_10);
 
         label_8 = new QLabel(widget1);
         label_8->setObjectName(QString::fromUtf8("label_8"));
@@ -229,15 +267,13 @@ public:
 "padding: 10px;\n"
 "}"));
 
-        horizontalLayout_4->addWidget(label_8);
+        horizontalLayout_3->addWidget(label_8);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_4);
+        verticalLayout->addLayout(horizontalLayout_3);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         take_first = new QPushButton(widget1);
         take_first->setObjectName(QString::fromUtf8("take_first"));
         take_first->setStyleSheet(QString::fromUtf8("QPushButton {\n"
@@ -255,7 +291,7 @@ public:
 "    border-style: inset;\n"
 "}"));
 
-        horizontalLayout_3->addWidget(take_first);
+        horizontalLayout_2->addWidget(take_first);
 
         take_second = new QPushButton(widget1);
         take_second->setObjectName(QString::fromUtf8("take_second"));
@@ -274,13 +310,13 @@ public:
 "    border-style: inset;\n"
 "}"));
 
-        horizontalLayout_3->addWidget(take_second);
+        horizontalLayout_2->addWidget(take_second);
 
 
-        verticalLayout->addLayout(horizontalLayout_3);
+        verticalLayout->addLayout(horizontalLayout_2);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         pushButton_2 = new QPushButton(widget1);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
@@ -298,7 +334,7 @@ public:
 "    border-style: inset;\n"
 "}"));
 
-        horizontalLayout_2->addWidget(pushButton_2);
+        horizontalLayout->addWidget(pushButton_2);
 
         pushButton_3 = new QPushButton(widget1);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
@@ -317,7 +353,7 @@ public:
 "    border-style: inset;\n"
 "}"));
 
-        horizontalLayout_2->addWidget(pushButton_3);
+        horizontalLayout->addWidget(pushButton_3);
 
         pushButton = new QPushButton(widget1);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -336,27 +372,13 @@ public:
 "    border-style: inset;\n"
 "}"));
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout->addWidget(pushButton);
 
 
-        verticalLayout->addLayout(horizontalLayout_2);
+        verticalLayout->addLayout(horizontalLayout);
 
-
-        verticalLayout_2->addLayout(verticalLayout);
-
-
-        horizontalLayout_8->addLayout(verticalLayout_2);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        line_3 = new QFrame(widget1);
-        line_3->setObjectName(QString::fromUtf8("line_3"));
-        line_3->setFrameShape(QFrame::VLine);
-        line_3->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout->addWidget(line_3);
-
-        textEdit = new QPlainTextEdit(widget1);
+        splitter->addWidget(widget1);
+        textEdit = new QPlainTextEdit(splitter);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
         textEdit->setStyleSheet(QString::fromUtf8("QPlainTextEdit{\n"
 "background-color: rgb(85, 87, 83);\n"
@@ -365,29 +387,18 @@ public:
 "border-radius: 5px;\n"
 "padding: 10px;\n"
 "}"));
+        splitter->addWidget(textEdit);
 
-        horizontalLayout->addWidget(textEdit);
+        verticalLayout_3->addWidget(splitter);
 
+        splitter_3->addWidget(widget);
 
-        horizontalLayout_8->addLayout(horizontalLayout);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_8);
-
-
-        verticalLayout_4->addLayout(verticalLayout_3);
-
-
-        verticalLayout_5->addLayout(verticalLayout_4);
-
-        splitter->addWidget(widget1);
-
-        verticalLayout_6->addWidget(splitter);
+        verticalLayout_4->addWidget(splitter_3);
 
         MainWindow4->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow4);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 835, 22));
+        menubar->setGeometry(QRect(0, 0, 897, 22));
         MainWindow4->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow4);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -403,6 +414,8 @@ public:
         MainWindow4->setWindowTitle(QApplication::translate("MainWindow4", "MainWindow", nullptr));
         label->setText(QString());
         label_2->setText(QString());
+        label_3->setText(QApplication::translate("MainWindow4", "command line :", nullptr));
+        label_4->setText(QApplication::translate("MainWindow4", "time for all :", nullptr));
         label_9->setText(QApplication::translate("MainWindow4", "X1: ", nullptr));
         label_6->setText(QString());
         label_11->setText(QApplication::translate("MainWindow4", "Y1: ", nullptr));

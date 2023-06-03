@@ -6,380 +6,373 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>835</width>
-    <height>583</height>
+    <width>897</width>
+    <height>602</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_6">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <widget class="QSplitter" name="splitter">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
+     <widget class="QSplitter" name="splitter_3">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <property name="handleWidth">
-       <number>10</number>
-      </property>
-      <widget class="QWidget" name="">
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
-        <item>
-         <widget class="MainWindow4::CustomLabel" name="label">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 87, 83);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 87, 83);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
+      <widget class="QSplitter" name="splitter_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="handleWidth">
+        <number>14</number>
+       </property>
+       <widget class="MainWindow4::CustomLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 87, 83);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 87, 83);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="">
-       <layout class="QVBoxLayout" name="verticalLayout_5">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="Line" name="line">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="Line" name="line_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item>
-             <widget class="Line" name="line_2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_2">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_6">
-                  <item>
-                   <widget class="QLabel" name="label_9">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel{
+               <widget class="QLabel" name="label_3">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
 background-color: rgb(85, 87, 83);
 color: rgb(0, 0, 0);
 border-width: 2px;
 border-radius: 5px;
 padding: 10px;
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>X1: </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_6">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel{
-background-color: rgb(85, 87, 83);
-color: rgb(0, 0, 0);
-border-width: 2px;
-border-radius: 5px;
-padding: 10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_5">
-                  <item>
-                   <widget class="QLabel" name="label_11">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel{
-background-color: rgb(85, 87, 83);
-color: rgb(0, 0, 0);
-border-width: 2px;
-border-radius: 5px;
-padding: 10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Y1: </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_7">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel{
-background-color: rgb(85, 87, 83);
-color: rgb(0, 0, 0);
-border-width: 2px;
-border-radius: 5px;
-padding: 10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
-                  <item>
-                   <widget class="QLabel" name="label_10">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel{
-background-color: rgb(85, 87, 83);
-color: rgb(0, 0, 0);
-border-width: 2px;
-border-radius: 5px;
-padding: 10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Z1: </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_8">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel{
-background-color: rgb(85, 87, 83);
-color: rgb(0, 0, 0);
-border-width: 2px;
-border-radius: 5px;
-padding: 10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout">
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_3">
-                    <item>
-                     <widget class="QPushButton" name="take_first">
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton {
-border-width: 2px;
-border-style: outset;
-border-color:#8E3B35;
-    background-color: #808080; /* Cornflower blue */
-    color: #000000; /* White */
-    border: none;
-    border-radius: 5px;
-    padding: 10px;}
-
-QPushButton:hover {
-    background-color:#8E3B35;
-    border-style: inset;
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>take first position</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="take_second">
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton {
-border-width: 2px;
-border-style: outset;
-border-color:#8E3B35;
-    background-color: #808080; /* Cornflower blue */
-    color: #000000; /* White */
-    border: none;
-    border-radius: 5px;
-    padding: 10px;}
-
-QPushButton:hover {
-    background-color:#8E3B35;
-    border-style: inset;
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>take second position</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_2">
-                    <item>
-                     <widget class="QPushButton" name="pushButton_2">
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton {
-border-width: 2px;
-border-style: outset;
-border-color:#8E3B35;
-    background-color: #808080; /* Cornflower blue */
-    color: #000000; /* White */
-    border: none;
-    border-radius: 5px;
-    padding: 10px;}
-
-QPushButton:hover {
-    background-color:#8E3B35;
-    border-style: inset;
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>publish to control</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton_3">
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton {
-border-width: 2px;
-border-style: outset;
-border-color:#8E3B35;
-    background-color: #808080; /* Cornflower blue */
-    color: #000000; /* White */
-    border: none;
-    border-radius: 5px;
-    padding: 10px;}
-
-QPushButton:hover {
-    background-color:#8E3B35;
-    border-style: inset;
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>switch kinect on</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton">
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton {
-border-width: 2px;
-border-style: outset;
-border-color:#8E3B35;
-    background-color: #808080; /* Cornflower blue */
-    color: #000000; /* White */
-    border: none;
-    border-radius: 5px;
-    padding: 10px;}
-
-QPushButton:hover {
-    background-color:#8E3B35;
-    border-style: inset;
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>switch zero on</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
+                </property>
+                <property name="text">
+                 <string>command line :</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="Line" name="line_3">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPlainTextEdit" name="textEdit">
-                  <property name="styleSheet">
-                   <string notr="true">QPlainTextEdit{
+               <widget class="QLineEdit" name="lineEdit"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <widget class="Line" name="line_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
 background-color: rgb(85, 87, 83);
 color: rgb(0, 0, 0);
 border-width: 2px;
 border-radius: 5px;
 padding: 10px;
 }</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+                </property>
+                <property name="text">
+                 <string>time for all :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="time_for_all"/>
               </item>
              </layout>
             </item>
            </layout>
           </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QSplitter" name="splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="QWidget" name="">
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+background-color: rgb(85, 87, 83);
+color: rgb(0, 0, 0);
+border-width: 2px;
+border-radius: 5px;
+padding: 10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>X1: </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+background-color: rgb(85, 87, 83);
+color: rgb(0, 0, 0);
+border-width: 2px;
+border-radius: 5px;
+padding: 10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+background-color: rgb(85, 87, 83);
+color: rgb(0, 0, 0);
+border-width: 2px;
+border-radius: 5px;
+padding: 10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Y1: </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_7">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+background-color: rgb(85, 87, 83);
+color: rgb(0, 0, 0);
+border-width: 2px;
+border-radius: 5px;
+padding: 10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+background-color: rgb(85, 87, 83);
+color: rgb(0, 0, 0);
+border-width: 2px;
+border-radius: 5px;
+padding: 10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Z1: </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+background-color: rgb(85, 87, 83);
+color: rgb(0, 0, 0);
+border-width: 2px;
+border-radius: 5px;
+padding: 10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QPushButton" name="take_first">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+border-width: 2px;
+border-style: outset;
+border-color:#8E3B35;
+    background-color: #808080; /* Cornflower blue */
+    color: #000000; /* White */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;}
+
+QPushButton:hover {
+    background-color:#8E3B35;
+    border-style: inset;
+}</string>
+                </property>
+                <property name="text">
+                 <string>take first position</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="take_second">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+border-width: 2px;
+border-style: outset;
+border-color:#8E3B35;
+    background-color: #808080; /* Cornflower blue */
+    color: #000000; /* White */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;}
+
+QPushButton:hover {
+    background-color:#8E3B35;
+    border-style: inset;
+}</string>
+                </property>
+                <property name="text">
+                 <string>take second position</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+border-width: 2px;
+border-style: outset;
+border-color:#8E3B35;
+    background-color: #808080; /* Cornflower blue */
+    color: #000000; /* White */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;}
+
+QPushButton:hover {
+    background-color:#8E3B35;
+    border-style: inset;
+}</string>
+                </property>
+                <property name="text">
+                 <string>publish to control</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+border-width: 2px;
+border-style: outset;
+border-color:#8E3B35;
+    background-color: #808080; /* Cornflower blue */
+    color: #000000; /* White */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;}
+
+QPushButton:hover {
+    background-color:#8E3B35;
+    border-style: inset;
+}</string>
+                </property>
+                <property name="text">
+                 <string>switch kinect on</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+border-width: 2px;
+border-style: outset;
+border-color:#8E3B35;
+    background-color: #808080; /* Cornflower blue */
+    color: #000000; /* White */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;}
+
+QPushButton:hover {
+    background-color:#8E3B35;
+    border-style: inset;
+}</string>
+                </property>
+                <property name="text">
+                 <string>switch zero on</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QPlainTextEdit" name="textEdit">
+           <property name="styleSheet">
+            <string notr="true">QPlainTextEdit{
+background-color: rgb(85, 87, 83);
+color: rgb(0, 0, 0);
+border-width: 2px;
+border-radius: 5px;
+padding: 10px;
+}</string>
+           </property>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -392,7 +385,7 @@ padding: 10px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>835</width>
+     <width>897</width>
      <height>22</height>
     </rect>
    </property>

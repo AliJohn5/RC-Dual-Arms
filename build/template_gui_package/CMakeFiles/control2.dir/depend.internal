@@ -2831,7 +2831,6 @@ template_gui_package/CMakeFiles/control2.dir/src/mainwindow4.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPlainTextEdit
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout

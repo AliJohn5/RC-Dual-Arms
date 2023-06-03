@@ -1080,12 +1080,6 @@
 			<Option target="RCArms"/>
 			<Option target="control"/>
 		</Unit>
-		<Unit filename="/home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/namespaceali.h">
-			<Option target="control2"/>
-			<Option target="Kinect"/>
-			<Option target="RCArms"/>
-			<Option target="control"/>
-		</Unit>
 		<Unit filename="/home/alijohn/Desktop/temp_for_gui/src/template_gui_package/include/template_gui_package/rrtstar.h">
 			<Option target="control2"/>
 			<Option target="Kinect"/>

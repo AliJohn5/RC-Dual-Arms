@@ -2832,7 +2832,6 @@ template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/
 template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
 template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPlainTextEdit
 template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
-template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem
 template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter
 template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
 template_gui_package/CMakeFiles/control.dir/src/mainwindow4.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout

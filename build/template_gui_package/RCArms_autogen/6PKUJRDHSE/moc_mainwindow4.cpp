@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow4_t {
-    QByteArrayData data[15];
-    char stringdata0[187];
+    QByteArrayData data[16];
+    char stringdata0[219];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,14 +45,16 @@ QT_MOC_LITERAL(10, 72, 23), // "on_pushButton_2_clicked"
 QT_MOC_LITERAL(11, 96, 21), // "on_take_first_clicked"
 QT_MOC_LITERAL(12, 118, 22), // "on_take_second_clicked"
 QT_MOC_LITERAL(13, 141, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(14, 163, 23) // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(14, 163, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(15, 187, 31) // "on_time_for_all_editingFinished"
 
     },
     "MainWindow4\0dataToSend\0\0data\0dataopen\0"
     "f\0spinOnce\0spin\0sendData\0not_hide\0"
     "on_pushButton_2_clicked\0on_take_first_clicked\0"
     "on_take_second_clicked\0on_pushButton_clicked\0"
-    "on_pushButton_3_clicked"
+    "on_pushButton_3_clicked\0"
+    "on_time_for_all_editingFinished"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +64,7 @@ static const uint qt_meta_data_MainWindow4[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,25 +72,27 @@ static const uint qt_meta_data_MainWindow4[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   69,    2, 0x06 /* Public */,
-       4,    1,   72,    2, 0x06 /* Public */,
+       1,    1,   74,    2, 0x06 /* Public */,
+       4,    1,   77,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    0,   75,    2, 0x0a /* Public */,
-       7,    0,   76,    2, 0x0a /* Public */,
-       8,    0,   77,    2, 0x0a /* Public */,
-       9,    0,   78,    2, 0x0a /* Public */,
-      10,    0,   79,    2, 0x08 /* Private */,
-      11,    0,   80,    2, 0x08 /* Private */,
-      12,    0,   81,    2, 0x08 /* Private */,
-      13,    0,   82,    2, 0x08 /* Private */,
-      14,    0,   83,    2, 0x08 /* Private */,
+       6,    0,   80,    2, 0x0a /* Public */,
+       7,    0,   81,    2, 0x0a /* Public */,
+       8,    0,   82,    2, 0x0a /* Public */,
+       9,    0,   83,    2, 0x0a /* Public */,
+      10,    0,   84,    2, 0x08 /* Private */,
+      11,    0,   85,    2, 0x08 /* Private */,
+      12,    0,   86,    2, 0x08 /* Private */,
+      13,    0,   87,    2, 0x08 /* Private */,
+      14,    0,   88,    2, 0x08 /* Private */,
+      15,    0,   89,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Bool,    5,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -119,6 +123,7 @@ void MainWindow4::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 8: _t->on_take_second_clicked(); break;
         case 9: _t->on_pushButton_clicked(); break;
         case 10: _t->on_pushButton_3_clicked(); break;
+        case 11: _t->on_time_for_all_editingFinished(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -169,13 +174,13 @@ int MainWindow4::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }

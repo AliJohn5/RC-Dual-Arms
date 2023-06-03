@@ -114,6 +114,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_time_for_all_editingFinished();
+
 private:
   Ui::MainWindow4 *ui;
   QTimer *ros_timer;

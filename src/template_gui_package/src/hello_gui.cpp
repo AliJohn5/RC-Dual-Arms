@@ -130,7 +130,9 @@ void helloGui::closeEvent(QCloseEvent *event)
 
 void closeNodes()
 {
-  system("rosnode kill -a");
+  //system("rosnode kill -a");
+  system("rosnode kill /DUAL &");
+  system("rosnode kill /Kinect1 &");
 }
 
 void helloGui::on_pushButton_7_clicked()

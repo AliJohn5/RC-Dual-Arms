@@ -56,7 +56,7 @@ int x_for_z ;
 int y_for_z ;
 
 static QLabel* lab;
-static QLabel* lab2;
+//static QLabel* lab2;
 
 QProcess process;
 
@@ -94,6 +94,7 @@ uint16_t * depth_data;
 QLabel *x_label;
 QLabel *y_label;
 
+int time_for_all = 50;
 
 bool IsNodeRunning(const std::string& node_name);
 
@@ -108,7 +109,7 @@ MainWindow4::MainWindow4(QWidget *parent) :
 
 //  nhPtr.reset(new ros::NodeHandle("~"));
 //  nhPtr1.reset(new ros::NodeHandle("~"));
-  setWindowTitle("Inverse");
+  setWindowTitle("control");
   pub1ptr.reset(new ros::NodeHandle("~"));
 
   RGBptr.reset(new ros::NodeHandle("~"));
@@ -132,6 +133,18 @@ MainWindow4::MainWindow4(QWidget *parent) :
   QObject::connect(ui->lineEdit,&QLineEdit::editingFinished,[&]()
   {
     QString command = ui->lineEdit->text();
+    QString cl = "";
+    for(int i=0 ;i< command.length();i++)
+    {
+      if(command[i]!=" ")
+        cl += command[i];
+    }
+    if(cl == "clear")
+    {
+      ui->textEdit->clear();
+      return;
+    }
+
     process.setProgram("/bin/sh");
     process.setArguments({"-c",command});
     process.start();
@@ -413,15 +426,23 @@ void MainWindow4::on_pushButton_2_clicked()
     cv::waitKey(1000);
     system("rosnode kill /DUAL &");
     first_move = !first_move;
+    e_send_x1 = send_x1;
+    e_send_y1 = send_y1;
+    e_send_z1 = send_z1;
+
+    e_send_x2 = send_x2;
+    e_send_y2 = send_y2;
+    e_send_z2 = send_z2;
+
     return;
   }
+  time_for_all = ui->time_for_all->text().toInt();
   RRTstar3D *ARM1 = new RRTstar3D(max_x1, max_y1, max_z1, min_x1, min_y1, min_z1,20, 10);
   ARM1->get_safety_dist(2);
   //ARM1->get_obstract_point(20, 20,20);
   Point3D sour(e_send_x1, e_send_y1, e_send_z1);
   Point3D fi(send_x1, send_y1, send_z1);
   if (fi == sour) return;
-  int time_for_all = 50;
   ARM1->set_start_and_goal(sour, fi,time_for_all);
   ARM1->go();
   //ARM1->print_path_for_amin();
@@ -561,3 +582,8 @@ void MainWindow4::on_pushButton_3_clicked()
   }
 }
 
+
+void MainWindow4::on_time_for_all_editingFinished()
+{
+    time_for_all = ui->time_for_all->text().toInt();
+}
